@@ -1,4 +1,4 @@
-[![dockeri.co](http://dockeri.co/image/blizarazu/burstcoin)](https://registry.hub.docker.com/blizarazu/burstcoin/)
+[![dockeri.co](http://dockeri.co/image/castorinop/burstcoin)](https://registry.hub.docker.com/castorinop/burstcoin/)
 
 Docker image of the Burstcoin wallet.
 https://github.com/burst-team/burstcoin
@@ -7,7 +7,7 @@ https://github.com/burst-team/burstcoin
 Start Burstcoin with dafault settings:
 
 ```console
-$ docker run -p 8125:8125 -p 8123:8123 --name burstcoin blizarazu/burstcoin
+$ docker run -p 8125:8125 -p 8123:8123 --name burstcoin castorinop/burstcoin
 ```
 
 # Configuration and data storage
@@ -24,7 +24,7 @@ nxt.uiServerHost=0.0.0.0
 Mount the directories inside the conainer when you run the container.
 
 ```console
-$ docker run -p 8125:8125 -p 8123:8123 -v /my/conf:/usr/src/burstcoin/conf -v /my/burst_db:/usr/src/burstcoin/burst_db --name burstcoin blizarazu/burstcoin
+$ docker run -p 8125:8125 -p 8123:8123 -v /my/conf:/usr/src/burstcoin/conf -v /my/burst_db:/usr/src/burstcoin/burst_db --name burstcoin castorinop/burstcoin
 ```
 
 You can access the Wallet by opening http://localhost:8125 in your browser.
