@@ -11,4 +11,6 @@ VOLUME /usr/src/burstcoin/conf /usr/src/burstcoin/burst_db
 EXPOSE 8125 8123
 
 RUN chmod +x /usr/src/burstcoin/run.sh
+
+COPY conf/*properties /usr/src/burstcoin/conf
 CMD ./run.sh
