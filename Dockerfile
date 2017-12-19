@@ -12,5 +12,5 @@ EXPOSE 8125 8123
 
 RUN chmod +x /usr/src/burstcoin/run.sh
 
-COPY conf/*properties /usr/src/burstcoin/conf
+COPY conf/*properties /usr/src/burstcoin/conf/
 CMD ./run.sh
