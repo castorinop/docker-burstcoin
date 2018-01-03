@@ -1,7 +1,7 @@
 [![dockeri.co](http://dockeri.co/image/castorinop/burstcoin)](https://registry.hub.docker.com/castorinop/burstcoin/)
 
 Docker image of the Burstcoin wallet.
-https://github.com/burst-team/burstcoin
+https://github.com/PoC-Consortium/burstcoin
 
 # Start Burstcoin
 Start Burstcoin with dafault settings:
