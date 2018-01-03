@@ -1,0 +1,25 @@
+
+
+db:
+  image: castorinop/mariadb
+  environment:
+  - MYSQL_DATABASE=${MYSQL_DATABASE}
+  - MYSQL_USER=${MYSQL_USERNAME}
+  - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+  - MYSQL_HOSTNAME=${MYSQL_HOSTNAME}
+
+
+burstcoin:
+  image: castorinop/burstcoin
+  links:
+  - db
+  environment:
+  - BST_ENGINE=mysql
+  - BST_DATABASE=${MYSQL_DATABASE}
+  - BST_USERNAME=${MYSQL_USERNAME}
+  - BST_PASSWORD=${MYSQL_PASSWORD}
+  - BST_HOSTNAME=${MYSQL_HOSTNAME}
+  ports:
+  - "8125:8125"
+  - "8123:8123"
+
