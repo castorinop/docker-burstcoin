@@ -1,7 +1,10 @@
 FROM java:8
 
-RUN wget https://github.com/PoC-Consortium/burstcoin/releases/download/1.3.6cg/burstcoin-1.3.6cg.zip
-RUN unzip -a burstcoin-1.3.6cg.zip -d /usr/src/burstcoin
+# zip version
+ENV VERSION "2.0.0"
+RUN wget https://github.com/PoC-Consortium/burstcoin/releases/download/${VERSION}/burstcoin-${VERSION}.zip \
+	&& unzip -a burstcoin-${VERSION}.zip -d  /usr/src/burstcoin \
+	&& rm -f burstcoin-${VERSION}.zip
 WORKDIR /usr/src/burstcoin
 
 VOLUME /usr/src/burstcoin/conf /usr/src/burstcoin/burst_db
