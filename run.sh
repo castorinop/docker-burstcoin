@@ -21,6 +21,10 @@ case $engine in
 
 URI="jdbc:$e://$HOSTNAME:$PORT/$DATABASE"
 
+sed -i "s@\(DB\.Url=\).*\$@\1${URI}@" conf/brs-default.properties
+sed -i "s/\(DB\.Username=\).*\$/\1${USERNAME}/" conf/brs-default.properties
+sed -i "s/\(DB\.Password=\).*\$/\1${PASSWORD}/" conf/brs-default.properties
+
 sed -i "s@\(nxt\.dbUrl=\).*\$@\1${URI}@" conf/nxt-default.properties
 sed -i "s/\(nxt\.dbUsername=\).*\$/\1${USERNAME}/" conf/nxt-default.properties
 sed -i "s/\(nxt\.dbPassword=\).*\$/\1${PASSWORD}/" conf/nxt-default.properties
