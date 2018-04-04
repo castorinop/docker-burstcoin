@@ -37,4 +37,4 @@ exec 6<&-
 
  echo " ready";
 
-exec ./burst.sh
+exec /bin/bash ./burst.sh
