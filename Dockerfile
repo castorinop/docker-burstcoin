@@ -1,10 +1,19 @@
 FROM java:8
 
 # zip version
-ENV VERSION "2.2.1"
+ENV VERSION "2.2.2"
 RUN wget https://github.com/PoC-Consortium/burstcoin/releases/download/${VERSION}/burstcoin-${VERSION}.zip \
 	&& unzip -a burstcoin-${VERSION}.zip -d  /usr/src/burstcoin \
 	&& rm -f burstcoin-${VERSION}.zip
+
+#RUN git clone https://github.com/PoC-Consortium/burstcoin -b ${VERSION} --depth 1 	
+#RUN cd burstcoin && yes | ./burst.sh compile
+
+
+#FROM java:8
+ 
+#RUN mkdir /usr/src/burstcoin
+#COPY --from=builder /burstcoin /usr/src/burstcoin
 WORKDIR /usr/src/burstcoin
 
 VOLUME /usr/src/burstcoin/conf /usr/src/burstcoin/burst_db
