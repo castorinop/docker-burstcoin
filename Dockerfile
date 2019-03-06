@@ -2,7 +2,7 @@ FROM java:8
 
 # zip version
 ENV VERSION "2.3.0"
-RUN wget https://github.com/burst-apps-team/burstcoin/releases/download/${VERSION}/burstcoin-${VERSION}.zip \
+RUN wget https://github.com/burst-apps-team/burstcoin/releases/download/v${VERSION}/burstcoin-${VERSION}.zip \
 	&& unzip -a burstcoin-${VERSION}.zip -d  /usr/src/burstcoin \
 	&& rm -f burstcoin-${VERSION}.zip
 
