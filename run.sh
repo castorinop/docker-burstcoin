@@ -32,14 +32,10 @@ sed -i "s/\(nxt\.dbPassword=\).*\$/\1${PASSWORD}/" conf/nxt-default.properties
 
 
 
-while ! exec 2>/dev/null 6<>/dev/tcp/${HOSTNAME}/${PORT} 2>/dev/null; do
+while ! bash -c "cat < /dev/null > /dev/tcp/${HOSTNAME}/${PORT}" 2>/dev/null; do
     echo "$(date) - still trying to connect to $engine at ${HOSTNAME}:${PORT}"
     sleep 1
 done
-
-exec 6>&-
-exec 6<&-
-
- echo " ready";
+echo " ${HOSTNAME}:${PORT} ready";
 
 exec /bin/bash ./burst.sh
