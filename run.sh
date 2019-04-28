@@ -3,7 +3,6 @@
 PORT=3306
 FILE="conf/brs.properties"
 
-env
 ENGINE=`echo $BST_ENGINE| tr '[:lower:]' '[:upper:]'`
 engine=`echo $ENGINE | tr '[:upper:]' '[:lower:]'`
 
@@ -11,7 +10,6 @@ for i in HOSTNAME DATABASE USERNAME PASSWORD; do
 	#NAME=${engine}_${i}; 
 	NAME=BST_${i}; 
 	export ${i}=${!NAME}; 
-	echo $i=${!i}  ; 
 done; 
 
 case $engine in 
