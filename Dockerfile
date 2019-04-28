@@ -1,9 +1,10 @@
-FROM java:8
+FROM openjdk:8-alpine
 
 # zip version
 ENV VERSION "2.3.0"
 RUN wget https://github.com/burst-apps-team/burstcoin/releases/download/v${VERSION}/burstcoin-${VERSION}.zip \
-	&& unzip -a burstcoin-${VERSION}.zip -d  /usr/src/burstcoin \
+	&& mkdir -p /usr/src/burstcoin \
+	&& unzip burstcoin-${VERSION}.zip -d  /usr/src/burstcoin \
 	&& rm -f burstcoin-${VERSION}.zip
 
 #RUN git clone https://github.com/PoC-Consortium/burstcoin -b ${VERSION} --depth 1 	
@@ -25,3 +26,7 @@ COPY conf/*properties /usr/src/burstcoin/conf/
 COPY run.sh /usr/src/burstcoin/
 RUN chmod +x burst.sh run.sh
 CMD ./run.sh
+
+RUN apk add --no-cache paxctl bash
+RUN find / -name javac  -exec paxctl -mc "{}" \; \
+    && find / -name java  -exec paxctl -mc "{}" \; 
