@@ -1,7 +1,7 @@
 FROM openjdk:8-alpine
 
 # zip version
-ENV VERSION "2.4.0"
+ENV VERSION "2.4.1"
 RUN wget https://github.com/burst-apps-team/burstcoin/releases/download/v${VERSION}/burstcoin-${VERSION}.zip \
 	&& mkdir -p /usr/src/burstcoin \
 	&& unzip burstcoin-${VERSION}.zip -d  /usr/src/burstcoin \
