@@ -24,7 +24,7 @@ EXPOSE 8125 8123
 
 COPY conf/*properties /usr/src/burstcoin/conf/
 COPY run.sh /usr/src/burstcoin/
-RUN chmod +x burst.sh run.sh
+RUN chmod +x run.sh
 CMD ./run.sh
 
 RUN apk add --no-cache paxctl bash
