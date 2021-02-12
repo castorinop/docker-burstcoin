@@ -36,4 +36,4 @@ while ! bash -c "cat < /dev/null > /dev/tcp/${HOSTNAME}/${PORT}" 2>/dev/null; do
 done
 echo " ${HOSTNAME}:${PORT} ready";
 
-exec /bin/bash ./burst.sh
+exec java -jar burst.jar
